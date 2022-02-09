@@ -1,0 +1,19 @@
+a {
+    height: 100vh;
+    color: #000;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    a {
+        height: 50vh;
+    }
+}
+
+a:first-of-type  {
+    background-color: #f0f;
+}
+
+a:last-of-type {
+    background-color: #0f0;
+}

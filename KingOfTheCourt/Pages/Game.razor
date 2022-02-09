@@ -1,0 +1,56 @@
+﻿@page "/Game"
+
+<div class="top row">
+    <a class="col-2 back d-flex align-items-center justify-content-center" href="/">Back</a>
+    <div class="col row">
+        <div class="col-8 h-100 d-flex align-items-center justify-content-center">
+            <h1>@TimerText</h1>
+        </div>
+        <div class="col-4 bg-success h-100 row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Team</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var Team in CurrentGame.Queue.Take(CurrentGame.Queue.Count()))
+                        {
+                            <tr>
+                                <td>@Team.Name</td>
+                                <td>@Team.Score</td>
+                            </tr>        
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <h1>Stage: @CurrentGame.Stage</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bottom row d-flex align-items-center justify-content-center">
+    <div class="field row">
+        <button @onclick="ChallengerScores" class="d-flex flex-column align-items-center justify-content-center">
+            <h2>Challenger</h2>
+            <p>@CurrentGame.Challenger.Name</p>
+            <p>@CurrentGame.Challenger.Score</p>
+        </button>
+        <button @onclick="KingScores" class="d-flex flex-column align-items-center justify-content-center">
+            <h2>King</h2>
+            <p>@CurrentGame.King.Name</p>
+            <p>@CurrentGame.King.Score</p>
+        </button>
+    </div>
+    <div class="row">
+        <div class="col-1">
+            <button @onclick="Start">Start</button>
+        </div>
+        <div class="col-1">
+            <button @onclick="StageEnd">End Stage</button>
+        </div>
+    </div>
+</div>

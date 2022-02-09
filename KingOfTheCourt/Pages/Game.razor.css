@@ -1,0 +1,27 @@
+﻿.top {
+    height: 30vh;
+    background-color: blue;
+}
+
+.bottom {
+    height: 70vh;
+    background-color: red;
+}
+
+button {
+    width: 50%;
+}
+
+.field {
+    height: 90%;
+    width: 60%;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.back {
+    background-color: mintcream;
+}

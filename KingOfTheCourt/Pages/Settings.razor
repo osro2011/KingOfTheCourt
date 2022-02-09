@@ -1,0 +1,45 @@
+﻿@page "/Settings"
+@using KingOfTheCourt.Data
+
+<div class="row h-100">
+    <div class="col-6">
+        <div class="m-2 h-100">
+            <h1>Select Team</h1>
+            <select multiple class="form-select h-75">
+                @{
+                    if (Teams.Count() <= 0)
+                    {
+                        <option disabled>List Empty</option>
+                    }
+                    foreach (TeamModel Team in Teams)
+                    {
+                        <option @onclick="() => SelectTeam(Team)">@Team.Name</option>
+                    }
+                }
+            </select>
+            <button @onclick="CreateTeam" class="btn btn-primary">New Team</button>
+            <button class="btn btn-success">Edit Team</button>
+            <button @onclick ="DeleteTeam" class="btn btn-danger">Delete Team</button>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="m-2 h-100">
+            <h1>Select Players</h1>
+            <select multiple class="form-select h-75">
+                @{
+                    if (Players.Count() <= 0)
+                    {
+                        <option disabled>List Empty</option>
+                    }
+                    foreach (PlayerModel Player in Players)
+                    {
+                        <option @onclick="() => SelectPlayer(Player)">@Player.Name</option>
+                    }
+                }
+            </select>
+            <button @onclick="CreatePlayer" class="btn btn-primary">New Player</button>
+            <button class="btn btn-success">Edit Player</button>
+            <button @onclick="DeletePlayer" class="btn btn-danger">Delete Player</button>
+        </div>
+    </div>
+</div>
