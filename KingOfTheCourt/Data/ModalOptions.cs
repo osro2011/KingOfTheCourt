@@ -10,7 +10,7 @@ namespace KingOfTheCourt.Data
         public string Position { get; set; }
         public string Style { get; set; }
         public bool? DisableBackgroundChannel { get; set; }
-        public bool? HideButton { get; set; }
+        public bool? HideHeader { get; set; }
         public bool? HideCloseButton { get; set; }
     }
 }

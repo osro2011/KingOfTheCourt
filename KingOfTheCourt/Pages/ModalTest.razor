@@ -1,0 +1,32 @@
+﻿@page "/test"
+@inject KingOfTheCourt.Services.IModalService Modal
+@using KingOfTheCourt.Data
+@using KingOfTheCourt.Services
+
+<button @onclick="ShowModal" class="btn btn-primary">Show Modal</button>
+
+@code {
+    void ShowModal()
+    {
+        var parameters = new ModalParameters();
+        parameters.Add("FormId", 3);
+
+        Modal.OnClose += ModalClosed;
+        Modal.Show<SignUpForm>("Sign up form", parameters);
+    }
+
+    void ModalClosed(ModalResult modalResult)
+    {
+        Console.WriteLine("Modal Closed");
+        if (modalResult.Cancelled)
+        {
+            Console.WriteLine("Modal Cancelled");
+        }
+        else
+        {
+            Console.WriteLine(modalResult.Data.ToString());
+        }
+
+        Modal.OnClose -= ModalClosed;
+    }
+}
